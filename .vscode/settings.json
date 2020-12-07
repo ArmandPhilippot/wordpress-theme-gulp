@@ -1,0 +1,45 @@
+{
+	// Editor Settings
+	"editor.formatOnPaste": false,
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": false,
+	// PHP
+	"[php]": {
+		"editor.defaultFormatter": "wongjn.php-sniffer",
+		"editor.detectIndentation": true,
+		"editor.insertSpaces": false,
+		"editor.useTabStops": true
+	},
+	// Javascript
+	"[javascript]": {
+		"editor.detectIndentation": false,
+		"editor.insertSpaces": true,
+		"editor.useTabStops": false
+	},
+	// PHP CS Fixer - see: https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer
+	"php-cs-fixer.config": ".phpcs.xml",
+	"php-cs-fixer.onsave": true,
+	// PHP Sniffer - see: https://marketplace.visualstudio.com/items?itemName=wongjn.php-sniffer
+	"phpSniffer.autoDetect": true,
+	"phpSniffer.standard": "phpcs.xml",
+	"phpSniffer.run": "onType",
+	// Prettier - see: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+	"prettier.arrowParens": "avoid",
+	"prettier.bracketSpacing": true,
+	"prettier.endOfLine": "lf",
+	"prettier.htmlWhitespaceSensitivity": "css",
+	"prettier.insertPragma": false,
+	"prettier.jsxBracketSameLine": false,
+	"prettier.jsxSingleQuote": true,
+	"prettier.printWidth": 80,
+	"prettier.proseWrap": "preserve",
+	"prettier.quoteProps": "as-needed",
+	"prettier.requirePragma": false,
+	"prettier.semi": true,
+	"prettier.singleQuote": true,
+	"prettier.tabWidth": 4,
+	"prettier.trailingComma": "es5",
+	"prettier.useTabs": true,
+	"prettier.vueIndentScriptAndStyle": true,
+	"prettier.configPath": ".prettierrc"
+}
