@@ -260,6 +260,7 @@ function scripts(done) {
 	return pipeline(
 		[
 			src(config.scripts.src.main, { sourcemaps: true }),
+			babel(),
 			concat('scripts.js'),
 			lec(),
 			dest(config.scripts.dest.main),
@@ -286,6 +287,7 @@ function vendorsScripts(done) {
 	return pipeline(
 		[
 			src(config.scripts.src.vendors, { sourcemaps: true }),
+			babel(),
 			concat('vendors.js'),
 			lec(),
 			dest(config.scripts.dest.vendors),
