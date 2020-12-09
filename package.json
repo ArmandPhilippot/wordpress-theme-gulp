@@ -21,7 +21,7 @@
 		"init": "gulp initTheme",
 		"build": "gulp",
 		"watch": "gulp watch",
-		"release": "standard-version",
+		"release": "standard-version -a",
 		"zip": "gulp zipTheme"
 	},
 	"browserslist": [
@@ -78,8 +78,7 @@
 	},
 	"standard-version": {
 		"scripts": {
-			"postbump": "gulp bump && gulp recompileCSS && && git add -A",
-			"release": "standard-version -a"
+			"postbump": "gulp bump && gulp recompileCSS && && git add -A"
 		}
 	},
 	"husky": {
