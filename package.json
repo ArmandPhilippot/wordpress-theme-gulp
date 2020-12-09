@@ -71,7 +71,7 @@
 		"husky": "^4.3.0",
 		"postcss": "^8.1.10",
 		"postcss-sorting": "^6.0.0",
-		"prettier": "^2.2.1",
+		"prettier": "npm:wp-prettier@^2.2.1-beta-1",
 		"standard-version": "^9.0.0",
 		"stylelint": "^13.8.0",
 		"stylelint-config-prettier": "^8.0.2",
