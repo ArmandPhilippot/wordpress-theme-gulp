@@ -378,7 +378,7 @@ function bumpCSS(done) {
 		[
 			src(config.bump.styles.src),
 			replace(/theme_version: "(.{5})"/g, function () {
-				return "theme_version: '" + packageVersion + "'";
+				return 'theme_version: "' + packageVersion + '"';
 			}),
 			dest(config.bump.styles.dest),
 		],
@@ -494,8 +494,9 @@ const build = parallel(
 	translate
 );
 exports.build = build;
-exports.bump = parallel(series(bumpCSS, styles, rtlStyles), bumpPHP);
+exports.bump = parallel(bumpCSS, bumpPHP);
 exports.default = series(clean, build);
 exports.initTheme = parallel(initTheme);
+exports.recompileCSS = parallel(styles, rtlStyles);
 exports.watch = parallel(serve, watchFiles);
 exports.zipTheme = series(zipTheme);

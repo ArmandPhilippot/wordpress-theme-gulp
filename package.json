@@ -78,8 +78,8 @@
 	},
 	"standard-version": {
 		"scripts": {
-			"postbump": "gulp bump",
-			"release": "git add --all && standard-version -a"
+			"postbump": "gulp bump && gulp recompileCSS && && git add -A",
+			"release": "standard-version -a"
 		}
 	},
 	"husky": {

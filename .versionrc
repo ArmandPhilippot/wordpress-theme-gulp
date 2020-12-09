@@ -45,17 +45,5 @@
 			"hidden": true
 		}
 	],
-	"packageFiles": [
-		{
-			"filename": "package.json",
-			"type": "json"
-		}
-	],
-	"bumpFiles": [
-		{
-			"filename": "package-lock.json",
-			"type": "json"
-		}
-	],
 	"releaseCommitMessageFormat": "chore(release): {{currentTag}}"
 }
