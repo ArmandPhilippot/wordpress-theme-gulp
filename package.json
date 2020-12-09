@@ -24,28 +24,17 @@
 		"release": "standard-version -a",
 		"zip": "gulp zipTheme"
 	},
-	"browserslist": [
-		"last 2 version",
-		"> 1%",
-		"ie >= 11",
-		"last 1 Android versions",
-		"last 1 ChromeAndroid versions",
-		"last 2 Chrome versions",
-		"last 2 Firefox versions",
-		"last 2 Safari versions",
-		"last 2 iOS versions",
-		"last 2 Edge versions",
-		"last 2 Opera versions"
-	],
 	"devDependencies": {
 		"@babel/core": "^7.12.9",
 		"@babel/preset-env": "^7.12.7",
 		"@commitlint/cli": "^11.0.0",
 		"@commitlint/config-conventional": "^11.0.0",
 		"@wordpress/babel-preset-default": "^4.19.0",
+		"@wordpress/browserslist-config": "^2.7.0",
 		"@wordpress/eslint-plugin": "^7.3.0",
 		"autoprefixer": "^10.0.4",
 		"browser-sync": "^2.26.13",
+		"browserslist": "^4.15.0",
 		"del": "^6.0.0",
 		"dotenv": "^8.2.0",
 		"dotenv-expand": "^5.1.0",
@@ -77,6 +66,9 @@
 		"stylelint-config-prettier": "^8.0.2",
 		"stylelint-config-wordpress": "^17.0.0"
 	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
 	"standard-version": {
 		"scripts": {
 			"postbump": "gulp bump && gulp recompileCSS && && git add -A"
