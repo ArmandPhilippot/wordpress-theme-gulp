@@ -71,7 +71,7 @@
 	],
 	"standard-version": {
 		"scripts": {
-			"postbump": "gulp bump && gulp recompileCSS && && git add -A"
+			"postbump": "gulp bump && gulp recompileCSS && git add -A"
 		}
 	},
 	"husky": {
