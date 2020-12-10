@@ -36,6 +36,7 @@ const cleanCSS = require('gulp-clean-css');
 const rtl = require('gulp-rtlcss');
 
 /* JS */
+const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 
