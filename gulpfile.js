@@ -115,6 +115,7 @@ function styles() {
 			notify({
 				title: 'Styles task complete',
 				message: 'style.css and style.min.css have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -150,6 +151,7 @@ function rtlStyles() {
 				title: 'rtlStyles task complete',
 				message:
 					'style-rtl.css and style-rtl.min.css have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -182,6 +184,7 @@ function printStyles() {
 			notify({
 				title: 'printStyles task complete',
 				message: 'print.css and print.min.css have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -215,6 +218,7 @@ function editorStyles() {
 				title: 'editorStyles task complete',
 				message:
 					'style-editor.css and style-editor.min.css have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -247,6 +251,7 @@ function vendorsStyles() {
 			notify({
 				title: 'vendorsStyles task complete',
 				message: 'vendors.css and vendors.min.css have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -274,6 +279,7 @@ function scripts() {
 			notify({
 				title: 'Scripts task complete',
 				message: 'scripts.js and scripts.min.js have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -301,6 +307,7 @@ function vendorsScripts() {
 			notify({
 				title: 'vendorsScripts task complete',
 				message: 'vendors.js and vendors.min.js have been compiled.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		errorHandler
@@ -326,6 +333,7 @@ function images(done) {
 			notify({
 				title: 'Images task complete',
 				message: 'Images have been compressed.',
+				onLast: config.notify.onLastOption,
 			}),
 		],
 		done()

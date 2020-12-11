@@ -111,6 +111,9 @@ module.exports = {
 		textDomain: process.env.WP_PROJECT_TEXT_DOMAIN,
 		vendorName: process.env.WP_PROJECT_VENDOR_NAME,
 	},
+	notify: {
+		onLastOption: true,
+	},
 	scripts: {
 		src: {
 			main: ['src/js/**/*.js', '!src/js/vendors/**/*.js'],
