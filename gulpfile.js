@@ -19,9 +19,10 @@
  */
 
 /**
- * Load Gulp configuration.
+ * Load Gulp configuration and error handler.
  */
-const config = require('./gulp-config');
+const config = require('./gulp/config');
+const errorHandler = require('./gulp/error-handler');
 
 /**
  * Load Gulp plugins.
@@ -94,7 +95,7 @@ function clean(done) {
  * Generate style.css and style.min.css. SCSS to CSS compilation, properties
  * sorting, autoprefixer, minification.
  */
-function styles(done) {
+function styles() {
 	return pipeline(
 		[
 			src(config.styles.src.main, { sourcemaps: true }),
@@ -116,7 +117,7 @@ function styles(done) {
 				message: 'style.css and style.min.css have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -126,7 +127,7 @@ function styles(done) {
  * Generate style-rtl.css and style-rtl.min.css. SCSS to CSS compilation, properties
  * sorting, autoprefixer, minification.
  */
-function rtlStyles(done) {
+function rtlStyles() {
 	return pipeline(
 		[
 			src(config.styles.src.main, { sourcemaps: true }),
@@ -151,7 +152,7 @@ function rtlStyles(done) {
 					'style-rtl.css and style-rtl.min.css have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -161,7 +162,7 @@ function rtlStyles(done) {
  * Generate print.css and print.min.css. SCSS to CSS compilation, properties
  * sorting, autoprefixer, minification.
  */
-function printStyles(done) {
+function printStyles() {
 	return pipeline(
 		[
 			src(config.styles.src.print, { sourcemaps: true }),
@@ -183,7 +184,7 @@ function printStyles(done) {
 				message: 'print.css and print.min.css have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -193,7 +194,7 @@ function printStyles(done) {
  * Generate style-editor.css and style-editor.min.css. SCSS to CSS compilation,
  * properties sorting, autoprefixer, minification.
  */
-function editorStyles(done) {
+function editorStyles() {
 	return pipeline(
 		[
 			src(config.styles.src.editor, { sourcemaps: true }),
@@ -216,7 +217,7 @@ function editorStyles(done) {
 					'style-editor.css and style-editor.min.css have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -226,7 +227,7 @@ function editorStyles(done) {
  * Generate vendors.css and vendors.min.css. SCSS to CSS compilation, properties
  * sorting, autoprefixer, minification.
  */
-function vendorsStyles(done) {
+function vendorsStyles() {
 	return pipeline(
 		[
 			src(config.styles.src.vendors, { sourcemaps: true }),
@@ -248,7 +249,7 @@ function vendorsStyles(done) {
 				message: 'vendors.css and vendors.min.css have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -257,7 +258,7 @@ function vendorsStyles(done) {
  *
  * Generate scripts.js and scripts.min.js. JS concatenation and minification.
  */
-function scripts(done) {
+function scripts() {
 	return pipeline(
 		[
 			src(config.scripts.src.main, { sourcemaps: true }),
@@ -275,7 +276,7 @@ function scripts(done) {
 				message: 'scripts.js and scripts.min.js have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -284,7 +285,7 @@ function scripts(done) {
  *
  * Generate vendors.js and vendors.min.js. JS concatenation and minification.
  */
-function vendorsScripts(done) {
+function vendorsScripts() {
 	return pipeline(
 		[
 			src(config.scripts.src.vendors, { sourcemaps: true }),
@@ -302,7 +303,7 @@ function vendorsScripts(done) {
 				message: 'vendors.js and vendors.min.js have been compiled.',
 			}),
 		],
-		done()
+		errorHandler
 	);
 }
 

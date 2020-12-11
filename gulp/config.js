@@ -181,6 +181,7 @@ module.exports = {
 		src: [
 			'./**/*',
 			'!{certs,certs/**/*}',
+			'!{gulp,gulp/**/*}',
 			'!{node_modules,node_modules/**/*}',
 			'!{src,src/**/*}',
 			'!{vendor,vendor/**/*}',
