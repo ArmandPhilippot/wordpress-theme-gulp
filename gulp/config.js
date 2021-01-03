@@ -23,9 +23,8 @@ if (myDotenv.error) {
 module.exports = {
 	browserSync: {
 		hostname: process.env.WP_BS_HOSTNAME,
-		proxy: {
-			target: 'https://www.' + process.env.WP_BS_HOSTNAME,
-		},
+		host: 'www.' + process.env.WP_BS_HOSTNAME,
+		proxy: 'https://www.' + process.env.WP_BS_HOSTNAME,
 		port: process.env.WP_BS_PORT,
 		https: {
 			key: process.env.WP_BS_HTTPS_KEY,
