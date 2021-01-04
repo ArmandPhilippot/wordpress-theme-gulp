@@ -37,17 +37,27 @@ add_action( 'after_setup_theme', 'yourprefix_setup' );
  * @since 0.0.1
  */
 function yourprefix_enqueue_styles() {
-	$theme_version = wp_get_theme()->get( 'Version' );
-	$theme_uri     = get_template_directory_uri();
+	$theme_uri          = get_template_directory_uri();
+	$theme_directory    = get_template_directory();
+	$style_path         = $theme_directory . '/style.min.css';
+	$print_style_path   = $theme_directory . '/print.min.css';
+	$vendors_style_path = $theme_directory . '/assets/css/vendors.min.css';
 
-	wp_register_style( 'yourprefix-style', $theme_uri . '/style.min.css', array(), $theme_version );
-	wp_register_style( 'yourprefix-style-print', $theme_uri . '/print.min.css', array(), $theme_version );
-	wp_register_style( 'yourprefix-style-vendors', $theme_uri . '/assets/css/vendors.min.css', array(), $theme_version );
+	if ( file_exists( $vendors_style_path ) ) {
+		wp_register_style( 'yourprefix-style-vendors', $theme_uri . '/assets/css/vendors.min.css', array(), YOURPREFIX_VERSION );
+		wp_enqueue_style( 'yourprefix-style-vendors' );
+	}
 
-	wp_enqueue_style( 'yourprefix-style-vendors' );
-	wp_enqueue_style( 'yourprefix-style' );
-	wp_style_add_data( 'yourprefix-style', 'rtl', 'replace' );
-	wp_enqueue_style( 'yourprefix-style-print' );
+	if ( file_exists( $style_path ) ) {
+		wp_register_style( 'yourprefix-style', $theme_uri . '/style.min.css', array(), YOURPREFIX_VERSION );
+		wp_enqueue_style( 'yourprefix-style' );
+		wp_style_add_data( 'yourprefix-style', 'rtl', 'replace' );
+	}
+
+	if ( file_exists( $print_style_path ) ) {
+		wp_register_style( 'yourprefix-style-print', $theme_uri . '/print.min.css', array(), YOURPREFIX_VERSION );
+		wp_enqueue_style( 'yourprefix-style-print' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'yourprefix_enqueue_styles' );
 
@@ -57,17 +67,24 @@ add_action( 'wp_enqueue_scripts', 'yourprefix_enqueue_styles' );
  * @since 0.0.1
  */
 function yourprefix_enqueue_scripts() {
-	$theme_version = wp_get_theme()->get( 'Version' );
-	$theme_uri     = get_template_directory_uri();
+	$theme_uri            = get_template_directory_uri();
+	$theme_directory      = get_template_directory();
+	$scripts_path         = $theme_directory . '/assets/js/scripts.min.js';
+	$vendors_scripts_path = $theme_directory . '/assets/js/vendors.min.js';
 
-	wp_register_script( 'yourprefix-scripts', $theme_uri . '/assets/js/scripts.min.js', array(), $theme_version, true );
-	wp_register_script( 'vendors-scripts', $theme_uri . '/assets/js/vendors.min.js', array(), $theme_version, true );
+	if ( file_exists( $scripts_path ) ) {
+		wp_register_script( 'yourprefix-scripts', $theme_uri . '/assets/js/scripts.min.js', array(), YOURPREFIX_VERSION, true );
+		wp_enqueue_script( 'yourprefix-scripts' );
+	}
+
+	if ( file_exists( $vendors_scripts_path ) ) {
+		wp_register_script( 'vendors-scripts', $theme_uri . '/assets/js/vendors.min.js', array(), YOURPREFIX_VERSION, true );
+		wp_enqueue_script( 'vendors-scripts' );
+	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	wp_enqueue_script( 'yourprefix-scripts' );
-	wp_enqueue_script( 'vendors-scripts' );
 }
 add_action( 'wp_enqueue_scripts', 'yourprefix_enqueue_scripts' );
 
@@ -77,12 +94,14 @@ add_action( 'wp_enqueue_scripts', 'yourprefix_enqueue_scripts' );
  * @since 0.0.1
  */
 function yourprefix_enqueue_editor_styles() {
-	$theme_version = wp_get_theme()->get( 'Version' );
-	$theme_uri     = get_template_directory_uri();
+	$theme_uri         = get_template_directory_uri();
+	$theme_directory   = get_template_directory();
+	$style_editor_path = $theme_directory . '/assets/css/style-editor.min.css';
 
-	wp_register_style( 'yourprefix-block-editor-styles', $theme_uri . '/assets/css/style-editor.min.css', array(), $theme_version );
-
-	wp_enqueue_style( 'yourprefix-block-editor-styles' );
+	if ( file_exists( $style_editor_path ) ) {
+		wp_register_style( 'yourprefix-block-editor-styles', $theme_uri . '/assets/css/style-editor.min.css', array(), YOURPREFIX_VERSION );
+		wp_enqueue_style( 'yourprefix-block-editor-styles' );
+	}
 }
 add_action( 'enqueue_block_editor_assets', 'yourprefix_enqueue_editor_styles' );
 
