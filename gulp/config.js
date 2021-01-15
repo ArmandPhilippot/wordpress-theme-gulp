@@ -46,6 +46,7 @@ module.exports = {
 			},
 		},
 		open: process.env.WP_BS_OPEN,
+		browser: process.env.WP_BS_BROWSER.split(','),
 		notify: process.env.WP_BS_NOTIFY,
 	},
 	bump: {
