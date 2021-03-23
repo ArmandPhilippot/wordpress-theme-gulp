@@ -361,6 +361,26 @@ function translate(done) {
 }
 
 /**
+ * Task: `moveFonts`
+ *
+ * Move fonts from src folder to assets folder.
+ */
+function moveFonts(done) {
+	return pipeline(
+		[
+			src(config.fonts.src),
+			dest(config.fonts.dest),
+			notify({
+				title: 'moveFonts task complete',
+				message: 'Fonts have been moved to assets.',
+				onLast: config.notify.onLastOption,
+			}),
+		],
+		done()
+	);
+}
+
+/**
  * Task: `zipTheme`
  *
  * Generate a zip version of the theme without development files.
@@ -488,6 +508,7 @@ function watchFiles(done) {
 	);
 	watch(config.images.watch).on('change', series(images, reload));
 	watch(config.files.watch).on('change', series(translate, reload));
+	watch(config.fonts.watch).on('change', series(moveFonts, reload));
 	done();
 }
 
@@ -503,7 +524,8 @@ const build = parallel(
 	scripts,
 	vendorsScripts,
 	images,
-	translate
+	translate,
+	moveFonts
 );
 exports.build = build;
 exports.bump = parallel(bumpCSS, bumpPHP);

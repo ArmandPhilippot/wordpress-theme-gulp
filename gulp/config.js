@@ -65,6 +65,11 @@ module.exports = {
 	files: {
 		watch: ['./**/*.php', '!vendor/**/*.php'],
 	},
+	fonts: {
+		src: 'src/fonts/**/*',
+		dest: 'assets/fonts/',
+		watch: 'src/fonts/**/*',
+	},
 	images: {
 		src: 'src/images/**/*',
 		dest: 'assets/images/',
