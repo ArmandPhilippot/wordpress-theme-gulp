@@ -348,7 +348,7 @@ function images(done) {
 function translate(done) {
 	return pipeline(
 		[
-			src(config.translation.src, { since: lastRun(translate) }),
+			src(config.translation.src),
 			pot(config.translation.potOptions),
 			dest(config.translation.dest + '/' + config.translation.filename),
 			notify({
