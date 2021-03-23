@@ -26,7 +26,7 @@ if ( ! function_exists( 'yourprefix_setup' ) ) {
 	 * @since 0.0.1
 	 */
 	function yourprefix_setup() {
-		load_textdomain( 'yourTextDomain', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'yourTextDomain', get_template_directory() . '/languages' );
 	}
 }
 add_action( 'after_setup_theme', 'yourprefix_setup' );
