@@ -202,6 +202,7 @@ module.exports = {
 			'!.prettierrc',
 			'!.stylelintrc.json',
 			'!.versionrc',
+			'!babel.config.json',
 			'!composer.json',
 			'!composer.lock',
 			'!gulp-config.js',
