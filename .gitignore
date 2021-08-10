@@ -1,14 +1,2 @@
-# Packages folders
-node_modules
-vendor
-
-# Dotenv
-.env
-
-# Certs
-certs/localhost.key
-certs/localhost.pem
-
-# Files to ignore
-*.map
-*.zip
+**/node_modules/**
+**/vendor/**

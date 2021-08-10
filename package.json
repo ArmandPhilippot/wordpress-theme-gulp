@@ -1,86 +1,33 @@
 {
-	"name": "your-package-name",
-	"version": "0.0.1",
-	"description": "Your theme description.",
-	"author": "Firstname Lastname",
+	"name": "wordpress-theme-gulp",
+	"description": "A boilerplate to create WordPress themes using Gulp.",
+	"version": "0.1.0",
 	"license": "GPL-2.0-or-later",
-	"homepage": "https://github.com/your/repo#readme",
+	"author": {
+		"name": "Armand Philippot",
+		"email": "contact@armandphilippot.com",
+		"url": "https://www.armandphilippot.com/"
+	},
+	"homepage": "https://github.com/boilerplates-collection/wordpress-theme-gulp#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/your/repo.git"
+		"url": "git+https://github.com/boilerplates-collection/wordpress-theme-gulp.git"
 	},
 	"bugs": {
-		"url": "https://github.com/your/repo/issues"
+		"url": "https://github.com/boilerplates-collection/wordpress-theme-gulp/issues"
 	},
 	"keywords": [
 		"WordPress",
-		"theme"
+		"theme",
+		"boilerplate"
 	],
-	"main": "gulpfile.js",
-	"scripts": {
-		"init": "gulp initTheme",
-		"build": "gulp",
-		"watch": "gulp watch",
-		"release": "standard-version -a",
-		"zip": "gulp zipTheme"
-	},
 	"devDependencies": {
-		"@babel/core": "^7.12.9",
-		"@babel/preset-env": "^7.12.7",
-		"@commitlint/cli": "^11.0.0",
-		"@commitlint/config-conventional": "^11.0.0",
-		"@wordpress/babel-preset-default": "^4.19.0",
-		"@wordpress/browserslist-config": "^2.7.0",
-		"@wordpress/eslint-plugin": "^7.3.0",
-		"autoprefixer": "^10.0.4",
-		"browser-sync": "^2.26.13",
-		"browserslist": "^4.15.0",
-		"del": "^6.0.0",
-		"dotenv": "^8.2.0",
-		"dotenv-expand": "^5.1.0",
-		"eslint": "^7.14.0",
-		"eslint-config-prettier": "^6.15.0",
-		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-clean-css": "^4.3.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-filter": "^6.0.0",
-		"gulp-imagemin": "^7.1.0",
-		"gulp-line-ending-corrector": "^1.0.3",
-		"gulp-notify": "^3.2.0",
-		"gulp-postcss": "^9.0.0",
-		"gulp-rename": "^2.0.0",
-		"gulp-replace": "^1.0.0",
-		"gulp-rtlcss": "^1.4.1",
-		"gulp-sass": "^4.1.0",
-		"gulp-sort": "^2.0.0",
-		"gulp-uglify": "^3.0.2",
-		"gulp-wp-pot": "^2.5.0",
-		"gulp-zip": "^5.0.2",
-		"husky": "^4.3.0",
-		"plugin-error": "^1.0.1",
-		"postcss": "^8.1.10",
-		"postcss-sorting": "^6.0.0",
-		"prettier": "npm:wp-prettier@^2.2.1-beta-1",
-		"standard-version": "^9.0.0",
-		"stylelint": "^13.8.0",
-		"stylelint-config-prettier": "^8.0.2",
-		"stylelint-config-wordpress": "^17.0.0"
+		"@commitlint/cli": "^13.1.0",
+		"@commitlint/config-conventional": "^13.1.0",
+		"husky": "^7.0.0",
+		"standard-version": "^9.3.0"
 	},
-	"browserslist": [
-		"extends @wordpress/browserslist-config"
-	],
-	"standard-version": {
-		"scripts": {
-			"postbump": "gulp bump && gulp recompileCSS && git add -A"
-		}
-	},
-	"husky": {
-		"hooks": {
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-		}
-	},
-	"dependencies": {
-		"normalize.css": "^8.0.1"
+	"scripts": {
+		"release": "standard-version -s"
 	}
 }
