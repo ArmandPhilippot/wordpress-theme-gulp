@@ -1,14 +1,16 @@
 # Packages folders
-node_modules
-vendor
+**/node_modules/**
+**/vendor/**
 
 # Dotenv
 .env
 
-# Certs
-certs/localhost.key
-certs/localhost.pem
+# Folders to ignore
+.vscode
+certs
 
 # Files to ignore
+*.log
 *.map
 *.zip
+.eslintcache
