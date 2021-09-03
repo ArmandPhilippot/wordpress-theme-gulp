@@ -1,9 +1,11 @@
 <?php
 /**
+ * Hooks functions.
+ *
  * Overwrite default WordPress functions.
  *
  * @package Your-Package-Name
- * @since 0.0.1
+ * @since   0.0.1
  */
 
 /*
