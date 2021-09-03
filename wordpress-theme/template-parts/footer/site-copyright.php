@@ -5,7 +5,7 @@
  * Used to display copyright in footer template.
  *
  * @package Your-Package-Name
- * @since   0.0.1
+ * @since   0.1.0
  */
 
 ?>

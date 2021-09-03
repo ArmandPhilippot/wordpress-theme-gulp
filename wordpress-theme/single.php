@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package Your-Package-Name
- * @since   0.0.1
+ * @since   0.1.0
  */
 
 get_header();

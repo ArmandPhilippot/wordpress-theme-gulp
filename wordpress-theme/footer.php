@@ -7,7 +7,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Your-Package-Name
- * @since   0.0.1
+ * @since   0.1.0
  */
 
 ?>

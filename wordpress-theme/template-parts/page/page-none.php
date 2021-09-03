@@ -5,7 +5,7 @@
  * Used in particular by 404 template.
  *
  * @package Your-Package-Name
- * @since   0.0.1
+ * @since   0.1.0
  */
 
 ?>

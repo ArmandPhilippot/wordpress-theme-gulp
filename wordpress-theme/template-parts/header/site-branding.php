@@ -5,7 +5,7 @@
  * Used to display branding in header template.
  *
  * @package Your-Package-Name
- * @since   0.0.1
+ * @since   0.1.0
  */
 
 if ( has_custom_logo() ) {

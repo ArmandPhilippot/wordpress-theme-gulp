@@ -11,19 +11,19 @@
  * @author    Firstname Lastname <your@email.com>
  * @copyright 2020 Company Name
  * @license   GPL-2.0-or-later
- * @since     0.0.1
+ * @since     0.1.0
  */
 
 /**
  * Currently theme version.
  */
-define( 'YOURPREFIX_VERSION', '0.0.1' );
+define( 'YOURPREFIX_VERSION', '0.1.0' );
 
 if ( ! function_exists( 'yourprefix_setup' ) ) {
 	/**
 	 * Setup Your-Package-Name theme and registers support for various WordPress features.
 	 *
-	 * @since 0.0.1
+	 * @since 0.1.0
 	 */
 	function yourprefix_setup() {
 		// Make theme available for translation.
@@ -104,7 +104,7 @@ add_action( 'after_setup_theme', 'yourprefix_setup' );
 /**
  * Register and enqueue styles.
  *
- * @since 0.0.1
+ * @since 0.1.0
  */
 function yourprefix_enqueue_styles() {
 	$style_path = get_template_directory() . '/style.css';
@@ -128,7 +128,7 @@ add_action( 'wp_enqueue_scripts', 'yourprefix_enqueue_styles' );
 /**
  * Register and enqueue scripts.
  *
- * @since 0.0.1
+ * @since 0.1.0
  */
 function yourprefix_enqueue_scripts() {
 	$footer_scripts_path = get_template_directory() . '/assets/js/footer.js';
@@ -155,7 +155,7 @@ add_action( 'wp_enqueue_scripts', 'yourprefix_enqueue_scripts' );
 /**
  * Register and enqueue editor assets.
  *
- * @since 0.0.1
+ * @since 0.1.0
  */
 function yourprefix_enqueue_editor_assets() {
 	$editor_scripts_path = get_template_directory() . '/assets/js/editor.js';
@@ -171,7 +171,7 @@ add_action( 'enqueue_block_editor_assets', 'yourprefix_enqueue_editor_assets' );
 /**
  * Register sidebars.
  *
- * @since 0.0.1
+ * @since 0.1.0
  */
 function yourprefix_widgets_init() {
 	if ( function_exists( 'register_sidebar' ) ) {
