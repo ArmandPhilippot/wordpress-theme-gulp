@@ -21,8 +21,8 @@
 /**
  * Load Gulp configuration and error handler.
  */
-const config = require('./gulp/config');
-const errorHandler = require('./gulp/error-handler');
+const config = require('./tools/gulp/config');
+const errorHandler = require('./tools/gulp/error-handler');
 
 /**
  * Load Gulp plugins.
