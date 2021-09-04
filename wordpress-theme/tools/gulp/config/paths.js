@@ -53,7 +53,7 @@ const paths = {
 	},
 	init: {
 		src: [
-			'./scss/abstracts/_variables.scss',
+			'./src/scss/abstracts/_variables.scss',
 			'./*.php',
 			'./inc/*.php',
 			'./template-parts/**/*.php',

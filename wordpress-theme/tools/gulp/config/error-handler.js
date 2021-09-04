@@ -12,7 +12,7 @@ import pluginError from 'plugin-error';
 const errorHandler = ( error ) => {
 	if ( typeof error !== 'undefined' ) {
 		// To display the full error object, uncomment the line below:
-		// console.log(error);
+		//console.log( error );
 
 		let notifyTitle = '';
 		let notifyMessage = '';
@@ -67,6 +67,45 @@ const errorHandler = ( error ) => {
 				error.cause.col +
 				'\n' +
 				error.cause;
+		}
+
+		if ( error.plugin === 'gulp-imagemin' ) {
+			notifyTitle = 'Images - Imagemin';
+			notifyMessage =
+				error.relativePath +
+				'\n' +
+				'line ' +
+				error.line +
+				' column ' +
+				error.column +
+				'\n' +
+				error.messageOriginal;
+		}
+
+		if ( error.plugin === 'gulp-wp-pot' ) {
+			notifyTitle = 'Translate - WP-Pot';
+			notifyMessage =
+				error.relativePath +
+				'\n' +
+				'line ' +
+				error.line +
+				' column ' +
+				error.column +
+				'\n' +
+				error.messageOriginal;
+		}
+
+		if ( error.plugin === 'gulp-zip' ) {
+			notifyTitle = 'generateZip - Zip';
+			notifyMessage =
+				error.relativePath +
+				'\n' +
+				'line ' +
+				error.line +
+				' column ' +
+				error.column +
+				'\n' +
+				error.messageOriginal;
 		}
 
 		notify( {

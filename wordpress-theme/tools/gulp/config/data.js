@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
-import fs from 'fs';
-import { isHttps, slugify } from './utils';
+import { promises as fs } from 'node:fs';
+import { isHttps, slugify } from './utils.js';
 
 /**
  * Load environment variables.
@@ -17,7 +17,7 @@ dotenvExpand( dotenvConfig );
 /**
  * Load package.json data.
  */
-const packageJson = JSON.parse( fs.readFileSync( './package.json' ) );
+const packageJson = JSON.parse( await fs.readFile( 'package.json' ) );
 
 /**
  * Data extracted from .env
@@ -29,7 +29,7 @@ const data = {
 		protocol: process.env.WP_THEME_BS_PROTOCOL,
 		cert: isHttps( process.env.WP_THEME_BS_PROTOCOL )
 			? {
-				file: process.env.WP_THEME_BS_HTTPS_CERT,
+				cert: process.env.WP_THEME_BS_HTTPS_CERT,
 				key: process.env.WP_THEME_BS_HTTPS_KEY,
 			}
 			: null,

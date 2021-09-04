@@ -16,13 +16,18 @@
 		"WordPress",
 		"theme"
 	],
+	"type": "module",
 	"main": "gulpfile.js",
+	"exports": "./gulpfile.js",
+	"engines": {
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+	},
 	"scripts": {
 		"init": "gulp initTheme",
 		"build": "gulp",
 		"watch": "gulp watch",
 		"release": "standard-version -a",
-		"zip": "gulp zipTheme"
+		"zip": "gulp generateZip"
 	},
 	"dependencies": {
 		"dotenv": "^10.0.0",

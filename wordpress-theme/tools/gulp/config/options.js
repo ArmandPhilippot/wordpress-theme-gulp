@@ -1,4 +1,4 @@
-import * as data from './data';
+import data from './data.js';
 
 /**
  * Options for Gulp plugins
