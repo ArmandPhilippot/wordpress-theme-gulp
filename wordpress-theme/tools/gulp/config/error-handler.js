@@ -113,7 +113,7 @@ const errorHandler = ( error ) => {
 			title: 'Gulp Error - ' + notifyTitle,
 		} ).write( error );
 
-		const gulpError = new pluginError( error.plugin, error );
+		const gulpError = error.plugin ? new pluginError( error.plugin, error ) : error;
 
 		throw gulpError;
 	}

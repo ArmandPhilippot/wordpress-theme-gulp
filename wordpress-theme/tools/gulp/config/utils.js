@@ -27,4 +27,14 @@ const isHttps = ( protocol ) => {
 	return 'https' === protocol;
 };
 
-export { slugify, isHttps };
+/**
+ * Check if current environment is development.
+ *
+ * @param {string} env The current environment.
+ * @return {boolean} True if environment matches with development.
+ */
+const isDev = ( env ) => {
+	return 'development' === env;
+};
+
+export { slugify, isHttps, isDev };

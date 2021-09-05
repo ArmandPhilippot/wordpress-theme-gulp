@@ -24,18 +24,15 @@ import { optimizeImages } from './tools/gulp/tasks/images.js';
 import { initTheme } from './tools/gulp/tasks/init.js';
 import { editorJs, footerJs, headerJs } from './tools/gulp/tasks/scripts.js';
 import { serve } from './tools/gulp/tasks/server.js';
-import { editorStyleCss, editorStyleRtlCss, printCss, printRtlCss, styleCss, styleRtlCss } from './tools/gulp/tasks/styles.js';
+import { editorCss, printCss, styleCss } from './tools/gulp/tasks/styles.js';
 import { translate } from './tools/gulp/tasks/translate.js';
 import { watchFiles } from './tools/gulp/tasks/watch.js';
 import { generateZip } from './tools/gulp/tasks/zip.js';
 
 const runAll = gulp.parallel(
 	styleCss,
-	styleRtlCss,
 	printCss,
-	printRtlCss,
-	editorStyleCss,
-	editorStyleRtlCss,
+	editorCss,
 	editorJs,
 	footerJs,
 	headerJs,
@@ -49,7 +46,7 @@ const runAll = gulp.parallel(
  */
 const build = gulp.series( clean, runAll );
 const bump = gulp.parallel( bumpVariables, bumpFunctions, bumpReadme );
-const recompileCSS = gulp.parallel( styleCss, styleRtlCss );
+const recompileCSS = styleCss;
 const watch = gulp.parallel( serve, watchFiles );
 
 export { build as default, bump, initTheme, recompileCSS, translate, watch, generateZip };

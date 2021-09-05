@@ -1,4 +1,5 @@
 import data from './data.js';
+import { isDev } from './utils.js';
 
 /**
  * Options for Gulp plugins
@@ -29,10 +30,10 @@ const options = {
 	},
 	gulp: {
 		src: {
-			sourcemaps: true,
+			sourcemaps: isDev( data.environment ) ? true : false,
 		},
 		dest: {
-			sourcemaps: '.',
+			sourcemaps: isDev( data.environment ) ? '.' : false,
 		},
 	},
 	imagemin: {

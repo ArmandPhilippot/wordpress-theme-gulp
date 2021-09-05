@@ -55,6 +55,7 @@ const data = {
 	copyright: {
 		year: process.env.WP_THEME_COPYRIGHT_YEAR,
 	},
+	environment: process.env.WP_THEME_ENV,
 	filenames: {
 		pot: process.env.WP_THEME_TEXT_DOMAIN + '.pot',
 		zip: slugify( process.env.WP_THEME_NAME ) + '.zip',

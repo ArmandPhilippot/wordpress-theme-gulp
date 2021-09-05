@@ -4,7 +4,7 @@ import { copyFonts } from './fonts.js';
 import { optimizeImages } from './images.js';
 import { editorJs, footerJs, headerJs } from './scripts.js';
 import { reload } from './server.js';
-import { editorStyleCss, editorStyleRtlCss, printCss, printRtlCss, styleCss, styleRtlCss } from './styles.js';
+import { editorCss, printCss, styleCss } from './styles.js';
 import { translate } from './translate.js';
 
 /**
@@ -17,19 +17,40 @@ import { translate } from './translate.js';
 function watchFiles( done ) {
 	gulp.watch( paths.watch.scss.main ).on(
 		'change',
-		gulp.series( gulp.parallel( styleCss, styleRtlCss, editorStyleCss, editorStyleRtlCss ), reload )
+		gulp.series( gulp.parallel( styleCss, editorCss ), reload )
 	);
 	gulp.watch( paths.watch.scss.editor ).on(
 		'change',
-		gulp.series( gulp.parallel( editorStyleCss, editorStyleRtlCss ), reload )
+		gulp.series( editorCss, reload )
 	);
-	gulp.watch( paths.watch.scss.print ).on( 'change', gulp.series( gulp.parallel( printCss, printRtlCss ), reload ) );
-	gulp.watch( paths.watch.js.editor ).on( 'change', gulp.series( editorJs, reload ) );
-	gulp.watch( paths.watch.js.footer ).on( 'change', gulp.series( footerJs, reload ) );
-	gulp.watch( paths.watch.js.header ).on( 'change', gulp.series( headerJs, reload ) );
-	gulp.watch( paths.watch.img ).on( 'change', gulp.series( optimizeImages, reload ) );
-	gulp.watch( paths.watch.php ).on( 'change', gulp.series( translate, reload ) );
-	gulp.watch( paths.watch.fonts ).on( 'change', gulp.series( copyFonts, reload ) );
+	gulp.watch( paths.watch.scss.print ).on(
+		'change',
+		gulp.series( printCss, reload )
+	);
+	gulp.watch( paths.watch.js.editor ).on(
+		'change',
+		gulp.series( editorJs, reload )
+	);
+	gulp.watch( paths.watch.js.footer ).on(
+		'change',
+		gulp.series( footerJs, reload )
+	);
+	gulp.watch( paths.watch.js.header ).on(
+		'change',
+		gulp.series( headerJs, reload )
+	);
+	gulp.watch( paths.watch.img ).on(
+		'change',
+		gulp.series( optimizeImages, reload )
+	);
+	gulp.watch( paths.watch.php ).on(
+		'change',
+		gulp.series( translate, reload )
+	);
+	gulp.watch( paths.watch.fonts ).on(
+		'change',
+		gulp.series( copyFonts, reload )
+	);
 	done();
 }
 
