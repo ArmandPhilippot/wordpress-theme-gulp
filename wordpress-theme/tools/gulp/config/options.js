@@ -70,6 +70,15 @@ const options = {
 			'properties-order': 'alphabetical',
 		},
 	},
+	rollup: {
+		babel: {
+			helpers: 'runtime',
+		},
+		config: {
+			format: 'umd',
+			sourcemaps: isDev( data.environment ) ? true : false,
+		},
+	},
 	sass: {
 		outputStyle: 'expanded',
 		indentType: 'tab',

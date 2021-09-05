@@ -43,21 +43,8 @@ const errorHandler = ( error ) => {
 				error.reason;
 		}
 
-		if ( error.plugin === 'gulp-babel' ) {
-			notifyTitle = 'JS - Babel';
-			notifyMessage =
-				posix.basename( error.fileName ) +
-				'\n' +
-				'line ' +
-				error.loc.line +
-				' column ' +
-				error.loc.column +
-				'\n' +
-				error.name;
-		}
-
-		if ( error.plugin === 'gulp-uglify' ) {
-			notifyTitle = 'JS - Uglify';
+		if ( error.plugin === 'babel' ) {
+			notifyTitle = 'JS - Rollup Babel';
 			notifyMessage =
 				posix.basename( error.fileName ) +
 				'\n' +

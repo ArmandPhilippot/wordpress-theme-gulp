@@ -1,35 +1,68 @@
-import gulp from 'gulp';
-import babel from 'gulp-babel';
-import concat from 'gulp-concat';
-import lec from 'gulp-line-ending-corrector';
 import notify from 'gulp-notify';
-import rename from 'gulp-rename';
-import uglify from 'gulp-uglify';
+import { rollup } from 'rollup';
+import { babel } from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import { pipeline } from 'stream';
+import data from '../config/data.js';
 import errorHandler from '../config/error-handler.js';
 import options from '../config/options.js';
 import paths from '../config/paths.js';
+import { isDev } from '../config/utils.js';
+import { terser } from 'rollup-plugin-terser';
+
+/**
+ * Get the plugins to process JS files depending on current environment.
+ *
+ * @return {Array} A list of plugins.
+ */
+function getPlugins() {
+	const plugins = [
+		resolve(),
+		commonjs(),
+		babel( { babelHelpers: options.rollup.babel.helpers } ),
+	];
+
+	if ( ! isDev( data.environment ) ) {
+		plugins.push( terser() );
+	}
+
+	return plugins;
+}
+
+/**
+ * Generate a bundle using rollup.
+ *
+ * @param {string} source The entry point path.
+ * @param {string} dest   The output path.
+ * @return {Promise} The bundle.
+ */
+async function* generateBundle( source, dest ) {
+	const rollupOptions = {
+		input: source,
+		plugins: getPlugins(),
+	};
+	const bundle = await rollup( rollupOptions );
+	await bundle.write( {
+		dir: dest,
+		format: options.rollup.config.format,
+		sourcemap: options.rollup.config.sourcemaps,
+	} );
+	yield bundle;
+}
 
 /**
  * Task: `editorJs`
  *
  * Generate editor.js and editor.min.js. JS concatenation and minification.
  */
-function editorJs() {
+async function editorJs() {
 	return pipeline(
 		[
-			gulp.src( paths.compile.scripts.src.editor, options.gulp.src ),
-			babel(),
-			concat( 'scripts.js' ),
-			lec(),
-			gulp.dest( paths.compile.scripts.dest ),
-			rename( { suffix: '.min' } ),
-			uglify(),
-			lec(),
-			gulp.dest( paths.compile.scripts.dest, options.gulp.dest ),
+			await generateBundle( paths.compile.scripts.src.editor, paths.compile.scripts.dest ),
 			notify( {
-				title: 'editorScripts task complete',
-				message: 'editor.js and editor.min.js have been compiled.',
+				title: 'editorJs task complete',
+				message: 'editor.js has been compiled.',
 				onLast: options.notify.onLast,
 			} ),
 		],
@@ -42,21 +75,13 @@ function editorJs() {
  *
  * Generate footer.js and footer.min.js. JS concatenation and minification.
  */
-function footerJs() {
+async function footerJs() {
 	return pipeline(
 		[
-			gulp.src( paths.compile.scripts.src.footer, options.gulp.src ),
-			babel(),
-			concat( 'scripts.js' ),
-			lec(),
-			gulp.dest( paths.compile.scripts.dest ),
-			rename( { suffix: '.min' } ),
-			uglify(),
-			lec(),
-			gulp.dest( paths.compile.scripts.dest, options.gulp.dest ),
+			await generateBundle( paths.compile.scripts.src.footer, paths.compile.scripts.dest ),
 			notify( {
-				title: 'footerScripts task complete',
-				message: 'footer.js and footer.min.js have been compiled.',
+				title: 'footerJs task complete',
+				message: 'footer.js has been compiled.',
 				onLast: options.notify.onLast,
 			} ),
 		],
@@ -69,21 +94,13 @@ function footerJs() {
  *
  * Generate header.js and header.min.js. JS concatenation and minification.
  */
-function headerJs() {
+async function headerJs() {
 	return pipeline(
 		[
-			gulp.src( paths.compile.scripts.src.header, options.gulp.src ),
-			babel(),
-			concat( 'scripts.js' ),
-			lec(),
-			gulp.dest( paths.compile.scripts.dest ),
-			rename( { suffix: '.min' } ),
-			uglify(),
-			lec(),
-			gulp.dest( paths.compile.scripts.dest, options.gulp.dest ),
+			await generateBundle( paths.compile.scripts.src.header, paths.compile.scripts.dest ),
 			notify( {
-				title: 'headerScripts task complete',
-				message: 'header.js and header.min.js have been compiled.',
+				title: 'headerJs task complete',
+				message: 'header.js has been compiled.',
 				onLast: options.notify.onLast,
 			} ),
 		],
