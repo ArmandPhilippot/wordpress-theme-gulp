@@ -3,15 +3,14 @@ import replace from 'gulp-replace';
 import { pipeline } from 'stream';
 import data from '../../config/data.js';
 import paths from '../../config/paths.js';
+import errorHandler from '../error-handler.js';
 
 /**
  * Task: `bumpVariables`
  *
  * Copy package.json version in Sass variables.
- *
- * @param {*} done Done.
  */
-function bumpVariables( done ) {
+function bumpVariables() {
 	return pipeline(
 		[
 			gulp.src( paths.bump.css.src ),
@@ -20,7 +19,7 @@ function bumpVariables( done ) {
 			} ),
 			gulp.dest( paths.bump.css.dest ),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -28,10 +27,8 @@ function bumpVariables( done ) {
  * Task: `bumpFunctions`
  *
  * Copy package.json version in functions.php.
- *
- * @param {*} done Done.
  */
-function bumpFunctions( done ) {
+function bumpFunctions() {
 	return pipeline(
 		[
 			gulp.src( paths.bump.functions.src ),
@@ -40,7 +37,7 @@ function bumpFunctions( done ) {
 			} ),
 			gulp.dest( paths.bump.functions.dest ),
 		],
-		done()
+		errorHandler
 	);
 }
 
@@ -48,10 +45,8 @@ function bumpFunctions( done ) {
  * Task: `bumpReadme`
  *
  * Copy package.json version in readme.txt.
- *
- * @param {*} done Done.
  */
-function bumpReadme( done ) {
+function bumpReadme() {
 	return pipeline(
 		[
 			gulp.src( paths.bump.readme.src ),
@@ -60,7 +55,7 @@ function bumpReadme( done ) {
 			} ),
 			gulp.dest( paths.bump.readme.dest ),
 		],
-		done()
+		errorHandler
 	);
 }
 
