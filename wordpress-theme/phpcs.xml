@@ -15,7 +15,7 @@
 	<!-- Strip the filepaths down to the relevant bit. Disabled, bug with VSCode. -->
 	<!-- <arg name="basepath" value="./"/> -->
 	<!-- Only check PHP files. -->
-	<arg name="extensions" value="php,css,scss/css"/>
+	<arg name="extensions" value="php"/>
 	<!-- Use the WordPress ruleset -->
 	<rule ref="WordPress" />
 	<!-- Allow theme-specific exceptions to WordPress filename rules. -->
