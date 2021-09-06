@@ -1,4 +1,5 @@
 import data from './data.js';
+import paths from './paths.js';
 import { isDev } from './utils.js';
 
 /**
@@ -64,6 +65,17 @@ const options = {
 	},
 	notify: {
 		onLast: true,
+	},
+	playwright: {
+		browser: {
+			ignoreHTTPSErrors: true,
+			viewport: { width: 1200, height: 900 },
+		},
+		goTo: data.url.protocol + '://' + data.url.host,
+		screenshot: {
+			clip: { x: 0, y: 0, width: 1200, height: 900 },
+			path: paths.screenshot,
+		},
 	},
 	postcss: {
 		sorting: {

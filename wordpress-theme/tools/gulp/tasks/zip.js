@@ -2,9 +2,9 @@ import gulp from 'gulp';
 import notify from 'gulp-notify';
 import zip from 'gulp-zip';
 import { pipeline } from 'stream';
-import data from '../config/data.js';
-import errorHandler from '../config/error-handler.js';
-import paths from '../config/paths.js';
+import errorHandler from '../error-handler.js';
+import data from '../../config/data.js';
+import paths from '../../config/paths.js';
 
 /**
  * Task: `generateZip`

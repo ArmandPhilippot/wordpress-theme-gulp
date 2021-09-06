@@ -65,6 +65,7 @@ const paths = {
 		],
 		dest: './',
 	},
+	screenshot: 'screenshot.png',
 	translate: {
 		src: [ './**/*.php', '!vendor/**/*.php' ],
 		dest: './languages/',

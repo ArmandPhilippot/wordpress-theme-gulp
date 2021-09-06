@@ -1,5 +1,5 @@
 import del from 'del';
-import paths from '../config/paths.js';
+import paths from '../../config/paths.js';
 
 /**
  * Task: `clean`

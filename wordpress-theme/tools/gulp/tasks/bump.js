@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 import replace from 'gulp-replace';
 import { pipeline } from 'stream';
-import data from '../config/data.js';
-import paths from '../config/paths.js';
+import data from '../../config/data.js';
+import paths from '../../config/paths.js';
 
 /**
  * Task: `bumpVariables`

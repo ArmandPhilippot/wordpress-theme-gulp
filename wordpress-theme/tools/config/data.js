@@ -24,13 +24,13 @@ const packageJson = JSON.parse( await fs.readFile( 'package.json' ) );
  */
 const data = {
 	browserSync: {
-		host: process.env.WP_THEME_BS_HOST,
+		host: process.env.WP_THEME_HOST,
 		port: process.env.WP_THEME_BS_PORT,
-		protocol: process.env.WP_THEME_BS_PROTOCOL,
-		cert: isHttps( process.env.WP_THEME_BS_PROTOCOL )
+		protocol: process.env.WP_THEME_PROTOCOL,
+		cert: isHttps( process.env.WP_THEME_PROTOCOL )
 			? {
-				cert: process.env.WP_THEME_BS_HTTPS_CERT,
-				key: process.env.WP_THEME_BS_HTTPS_KEY,
+				cert: process.env.WP_THEME_HTTPS_CERT,
+				key: process.env.WP_THEME_HTTPS_KEY,
 			}
 			: null,
 		open: process.env.WP_THEME_BS_OPEN,
@@ -83,6 +83,10 @@ const data = {
 		},
 		textDomain: process.env.WP_THEME_TEXT_DOMAIN,
 		version: packageJson.version,
+	},
+	url: {
+		host: process.env.WP_THEME_HOST,
+		protocol: process.env.WP_THEME_PROTOCOL,
 	},
 };
 

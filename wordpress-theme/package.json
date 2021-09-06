@@ -34,6 +34,7 @@
 		"lint:php": "composer lint",
 		"lint:scss": "stylelint \"**/*.scss\" --syntax scss --formatter verbose",
 		"release": "standard-version -a",
+		"screenshot": "node ./tools/screenshot.js",
 		"watch": "gulp watch",
 		"zip": "gulp generateZip"
 	},
@@ -77,6 +78,7 @@
 		"husky": "^7.0.2",
 		"lint-staged": "^11.1.2",
 		"npm-run-all": "^4.1.5",
+		"playwright-firefox": "^1.14.1",
 		"plugin-error": "^1.0.1",
 		"postcss": "^8.3.6",
 		"postcss-sorting": "^6.0.0",

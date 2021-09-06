@@ -1,5 +1,5 @@
 import browserSync from 'browser-sync';
-import options from '../config/options.js';
+import options from '../../config/options.js';
 
 const server = browserSync.create( 'Gulp server' );
 

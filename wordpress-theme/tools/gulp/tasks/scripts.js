@@ -3,13 +3,13 @@ import { rollup } from 'rollup';
 import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import { pipeline } from 'stream';
-import data from '../config/data.js';
-import errorHandler from '../config/error-handler.js';
-import options from '../config/options.js';
-import paths from '../config/paths.js';
-import { isDev } from '../config/utils.js';
 import { terser } from 'rollup-plugin-terser';
+import { pipeline } from 'stream';
+import errorHandler from '../error-handler.js';
+import data from '../../config/data.js';
+import options from '../../config/options.js';
+import paths from '../../config/paths.js';
+import { isDev } from '../../config/utils.js';
 
 /**
  * Get the plugins to process JS files depending on current environment.

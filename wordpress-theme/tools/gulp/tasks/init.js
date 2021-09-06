@@ -1,9 +1,9 @@
 import gulp from 'gulp';
 import replace from 'gulp-replace';
 import { pipeline } from 'stream';
-import data from '../config/data.js';
-import errorHandler from '../config/error-handler.js';
-import paths from '../config/paths.js';
+import errorHandler from '../error-handler.js';
+import data from '../../config/data.js';
+import paths from '../../config/paths.js';
 
 /**
  * Task: `initTheme`

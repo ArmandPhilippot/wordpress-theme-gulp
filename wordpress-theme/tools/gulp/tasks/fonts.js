@@ -1,9 +1,9 @@
 import gulp from 'gulp';
 import notify from 'gulp-notify';
 import { pipeline } from 'stream';
-import errorHandler from '../config/error-handler.js';
-import options from '../config/options.js';
-import paths from '../config/paths.js';
+import errorHandler from '../error-handler.js';
+import options from '../../config/options.js';
+import paths from '../../config/paths.js';
 
 /**
  * Task: `copyFonts`

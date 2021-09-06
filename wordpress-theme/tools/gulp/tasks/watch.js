@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import paths from '../config/paths.js';
+import paths from '../../config/paths.js';
 import { copyFonts } from './fonts.js';
 import { optimizeImages } from './images.js';
 import { editorJs, footerJs, headerJs } from './scripts.js';

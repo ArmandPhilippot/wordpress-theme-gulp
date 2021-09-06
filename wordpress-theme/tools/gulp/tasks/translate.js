@@ -2,10 +2,10 @@ import gulp from 'gulp';
 import notify from 'gulp-notify';
 import pot from 'gulp-wp-pot';
 import { pipeline } from 'stream';
-import data from '../config/data.js';
-import errorHandler from '../config/error-handler.js';
-import options from '../config/options.js';
-import paths from '../config/paths.js';
+import errorHandler from '../error-handler.js';
+import data from '../../config/data.js';
+import options from '../../config/options.js';
+import paths from '../../config/paths.js';
 
 /**
  * Task: `translate`

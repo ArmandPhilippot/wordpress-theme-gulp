@@ -11,17 +11,18 @@ import gulpSass from 'gulp-sass';
 import sorting from 'postcss-sorting';
 import dartSass from 'sass';
 import { pipeline } from 'stream';
-import data from '../config/data.js';
-import errorHandler from '../config/error-handler.js';
-import options from '../config/options.js';
-import paths from '../config/paths.js';
-import { isDev } from '../config/utils.js';
+import errorHandler from '../error-handler.js';
+import data from '../../config/data.js';
+import options from '../../config/options.js';
+import paths from '../../config/paths.js';
+import { isDev } from '../../config/utils.js';
 
 const sass = gulpSass( dartSass );
 
 /**
  * Get the plugins to process Sass files depending on current environment.
- * @returns {Array} A list of plugins.
+ *
+ * @return {Array} A list of plugins.
  */
 function getPlugins() {
 	const plugins = [];
