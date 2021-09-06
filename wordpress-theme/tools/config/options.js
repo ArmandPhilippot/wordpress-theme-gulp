@@ -98,11 +98,11 @@ const options = {
 		includePaths: [ 'node_modules' ],
 	},
 	wpPot: {
-		bugReport: '',
-		domain: '',
-		lastTranslator: '',
-		package: '',
-		team: '',
+		bugReport: data.package.repo + '/issues',
+		domain: data.theme.textDomain,
+		lastTranslator: data.theme.translation.lastTranslator,
+		package: data.package.name.capitalize,
+		team: data.theme.translation.team,
 	},
 };
 

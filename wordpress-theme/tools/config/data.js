@@ -82,6 +82,10 @@ const data = {
 			uppercase: process.env.WP_THEME_PREFIX_PASCALCASE.toUpperCase(),
 		},
 		textDomain: process.env.WP_THEME_TEXT_DOMAIN,
+		translation: {
+			lastTranslator: process.env.WP_THEME_LAST_TRANSLATOR,
+			team: process.env.WP_THEME_TRANSLATION_TEAM,
+		},
 		version: packageJson.version,
 	},
 	url: {

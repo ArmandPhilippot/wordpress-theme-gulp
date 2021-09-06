@@ -35,6 +35,8 @@
 		"lint:scss": "stylelint \"**/*.scss\" --syntax scss --formatter verbose",
 		"release": "standard-version -a",
 		"screenshot": "node ./tools/screenshot.js",
+		"translate": "npm-run-all --parallel translate:*",
+		"translate:php": "gulp translate",
 		"watch": "gulp watch",
 		"zip": "gulp generateZip"
 	},
