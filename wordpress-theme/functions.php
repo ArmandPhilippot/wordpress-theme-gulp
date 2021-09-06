@@ -9,7 +9,7 @@
  *
  * @package   Your-Package-Name
  * @author    Firstname Lastname <your@email.com>
- * @copyright 2020 Company Name
+ * @copyright 2021 Company Name
  * @license   GPL-2.0-or-later
  * @since     0.1.0
  */
