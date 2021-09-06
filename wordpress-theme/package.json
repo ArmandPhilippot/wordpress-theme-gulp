@@ -23,10 +23,18 @@
 		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
 	},
 	"scripts": {
-		"init": "gulp initTheme",
 		"build": "gulp",
-		"watch": "gulp watch",
+		"fix": "npm-run-all --parallel fix:*",
+		"fix:js": "eslint --ext .js,.jsx --fix",
+		"fix:php": "composer fix",
+		"fix:scss": "stylelint \"**/*.scss\" --fix",
+		"init": "gulp initTheme",
+		"lint": "npm-run-all --parallel lint:*",
+		"lint:js": "eslint --ext .js,.jsx",
+		"lint:php": "composer lint",
+		"lint:scss": "stylelint \"**/*.scss\" --syntax scss --formatter verbose",
 		"release": "standard-version -a",
+		"watch": "gulp watch",
 		"zip": "gulp generateZip"
 	},
 	"dependencies": {
@@ -67,6 +75,8 @@
 		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.1.0",
 		"husky": "^7.0.2",
+		"lint-staged": "^11.1.2",
+		"npm-run-all": "^4.1.5",
 		"plugin-error": "^1.0.1",
 		"postcss": "^8.3.6",
 		"postcss-sorting": "^6.0.0",
