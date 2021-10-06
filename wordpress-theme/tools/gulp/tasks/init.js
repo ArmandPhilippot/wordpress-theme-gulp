@@ -62,6 +62,9 @@ function initTheme() {
 			replace( 'your-vendor-name', function() {
 				return data.package.vendor;
 			} ),
+			replace( 'WP.org Username1, WP.org Username2', function() {
+				return data.contributors;
+			} ),
 			gulp.dest( paths.init.dest ),
 		],
 		errorHandler
