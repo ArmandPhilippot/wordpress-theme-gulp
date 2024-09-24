@@ -85,7 +85,7 @@
 		"postcss": "^8.4.31",
 		"postcss-sorting": "^6.0.0",
 		"prettier": "npm:wp-prettier@^2.2.1-beta-1",
-		"rollup": "^2.56.3",
+		"rollup": "^3.29.5",
 		"rollup-plugin-terser": "^7.0.2",
 		"sass": "^1.39.0",
 		"standard-version": "^9.3.1",
